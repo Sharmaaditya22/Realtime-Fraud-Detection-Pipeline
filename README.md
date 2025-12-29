@@ -117,8 +117,10 @@ Click the "🚀 Start Simulation" button in the sidebar to automatically start g
 
 ### Terminal 3 (Optional): Manual Producer
 If you prefer to run the data generator manually instead of using the dashboard button:
-
+```bash
 python python_producer.py
+```
+
 ## 📂 Project Structure
 ├── dashboard.py                # Streamlit Frontend ("Mission Control")
 ├── python_producer.py          # Data Generator (Simulates Transactions)
@@ -132,7 +134,6 @@ python python_producer.py
 ├── jars/                       # Folder for Delta Lake JARs
 ├── checkpoints/                # Spark Checkpoint folder (auto-generated)
 └── lakehouse/                  # Delta Lake storage folder (auto-generated)
-📸 Screenshots
 
 ## Live Fraud Dashboard
 ![Ouput1](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline/blob/91ec42dc2cc423b66e92d96beb998fc6a1626b37/Images/Output1.png)
