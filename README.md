@@ -120,8 +120,6 @@ If you prefer to run the data generator manually instead of using the dashboard 
 
 python python_producer.py
 ## 📂 Project Structure
-Plaintext
-
 ├── dashboard.py                # Streamlit Frontend ("Mission Control")
 ├── python_producer.py          # Data Generator (Simulates Transactions)
 ├── realtime_fraud_detection.py # Main Spark Structured Streaming Job
