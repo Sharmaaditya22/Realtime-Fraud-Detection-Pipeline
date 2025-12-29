@@ -122,18 +122,21 @@ python python_producer.py
 ```
 
 ## 📂 Project Structure
-├── dashboard.py                # Streamlit Frontend ("Mission Control")
-├── python_producer.py          # Data Generator (Simulates Transactions)
-├── realtime_fraud_detection.py # Main Spark Structured Streaming Job
-├── spark_batch_each_steps.ipynb # Debugging NB: Breaks down streaming logic into batch steps for learning
-├── redis_data.py               # Utility: Verifies Redis connection and inspects keys
-├── Deltalake.ipynb             # Analytics NB: Query and transform historical data from Delta Lake
-├── kafka_docker_file/          # Docker Compose setup for Kafka/Redis
-├── requirements.in             # Top-level dependencies (for humans)
-├── requirements.txt            # Frozen dependencies (for machines)
-├── jars/                       # Folder for Delta Lake JARs
-├── checkpoints/                # Spark Checkpoint folder (auto-generated)
-└── lakehouse/                  # Delta Lake storage folder (auto-generated)
+
+```text
+├── dashboard.py                 # Streamlit Frontend ("Mission Control")
+├── python_producer.py           # Data Generator (Simulates Transactions)
+├── realtime_fraud_detection.py  # Main Spark Structured Streaming Job
+├── spark_batch_each_steps.ipynb # Debugging NB: Streaming logic broken down into batch steps
+├── redis_data.py                # Utility: Verifies Redis connection and inspects keys
+├── Deltalake.ipynb              # Analytics NB: Transformation & querying of Delta Lake history
+├── kafka_docker_file/           # Docker Compose setup for Kafka/Redis
+├── requirements.in              # Top-level dependencies (for humans)
+├── requirements.txt             # Frozen dependencies (for machines)
+├── jars/                        # Folder for Delta Lake JARs
+├── checkpoints/                 # Spark Checkpoint folder (auto-generated)
+└── lakehouse/                   # Delta Lake storage folder (auto-generated)
+```
 
 ## Live Fraud Dashboard
 ![Ouput1](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline/blob/91ec42dc2cc423b66e92d96beb998fc6a1626b37/Images/Output1.png)
