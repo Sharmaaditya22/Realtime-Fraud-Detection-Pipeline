@@ -28,7 +28,7 @@ This project simulates a real-world fraud detection engine. It is designed to ha
 
 Below is the High-Level Design (HLD) of the system data flow.
 
-![High Level Design](architecture_diagram.png)
+![High Level Design](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline/blob/91ec42dc2cc423b66e92d96beb998fc6a1626b37/Images/architecture_diagram.png)
 
 **The Pipeline Flow:**
 1.  **Producer (`python_producer.py`):** Generates fake credit card transactions and pushes them to Kafka.
@@ -59,57 +59,67 @@ Before running this project, ensure you have the following installed:
 ## 🚀 Setup Guide
 
 ### 1. Clone the Repository
+
 ```bash
 git clone [https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline.git](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline.git)
 cd Realtime-Fraud-Detection-Pipeline
-2. Install Dependencies
+```
+
+### 2. Install Dependencies
 We recommend creating a virtual environment first.
 
 Bash
 
-# Using pip
+Using pip
+```bash
 pip install -r requirements.txt
+```
 
-# OR using uv (faster)
+OR using uv (faster)
+```bash
 uv pip install -r requirements.txt
-3. Start Infrastructure (Kafka & Redis)
+```
+
+### 3. Start Infrastructure (Kafka & Redis)
 Navigate to the docker folder and start the services.
 
 Bash
-
+```bash
 cd kafka_docker_file
 docker-compose up -d
 cd ..
+```
+
 (Ensure Zookeeper is running on port 2181, Kafka on 9092, and Redis on 6379)
 
-▶️ How to Run
+## ▶️ How to Run
 You will need two or three separate terminals to run the full pipeline.
 
-Terminal 1: The Spark Processor
+### Terminal 1: The Spark Processor
 This initiates the listening stream. It will wait for incoming data.
 
 Bash
-
+```bash
 python realtime_fraud_detection.py
+```
 Wait until you see the log message: Waiting for data...
 
-Terminal 2: The Dashboard
+### Terminal 2: The Dashboard
 This launches the web interface ("Mission Control").
 
 Bash
-
+```bash
 streamlit run dashboard.py
+```
 The app will open in your browser at http://localhost:8501.
 
 Click the "🚀 Start Simulation" button in the sidebar to automatically start generating data.
 
-Terminal 3 (Optional): Manual Producer
+### Terminal 3 (Optional): Manual Producer
 If you prefer to run the data generator manually instead of using the dashboard button:
 
-Bash
-
 python python_producer.py
-📂 Project Structure
+## 📂 Project Structure
 Plaintext
 
 ├── dashboard.py                # Streamlit Frontend ("Mission Control")
@@ -123,4 +133,6 @@ Plaintext
 └── lakehouse/                  # Delta Lake storage folder (auto-generated)
 📸 Screenshots
 
-Live Fraud Dashboard
+## Live Fraud Dashboard
+![Ouput1](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline/blob/91ec42dc2cc423b66e92d96beb998fc6a1626b37/Images/Output1.png)
+![Ouput2](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline/blob/91ec42dc2cc423b66e92d96beb998fc6a1626b37/Images/Output2.png)
