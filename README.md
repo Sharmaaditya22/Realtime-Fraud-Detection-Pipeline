@@ -125,6 +125,9 @@ Plaintext
 ├── dashboard.py                # Streamlit Frontend ("Mission Control")
 ├── python_producer.py          # Data Generator (Simulates Transactions)
 ├── realtime_fraud_detection.py # Main Spark Structured Streaming Job
+├── spark_batch_each_steps.ipynb # Debugging NB: Breaks down streaming logic into batch steps for learning
+├── redis_data.py               # Utility: Verifies Redis connection and inspects keys
+├── Deltalake.ipynb             # Analytics NB: Query and transform historical data from Delta Lake
 ├── kafka_docker_file/          # Docker Compose setup for Kafka/Redis
 ├── requirements.in             # Top-level dependencies (for humans)
 ├── requirements.txt            # Frozen dependencies (for machines)
@@ -136,3 +139,38 @@ Plaintext
 ## Live Fraud Dashboard
 ![Ouput1](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline/blob/91ec42dc2cc423b66e92d96beb998fc6a1626b37/Images/Output1.png)
 ![Ouput2](https://github.com/Sharmaaditya22/Realtime-Fraud-Detection-Pipeline/blob/91ec42dc2cc423b66e92d96beb998fc6a1626b37/Images/Output2.png)
+
+## ⚡ Useful Kafka Commands
+
+If you need to debug Kafka manually, you can run these commands. 
+*Note: If running from your host machine, use `localhost:9092`. If running inside the Docker container, use `kafka:29092`.*
+
+### 1. List All Topics
+Check if `raw_transactions` exists.
+```bash
+kafka-topics --bootstrap-server localhost:9092 --list
+```
+
+### 2. Create Topic Manually
+If the producer doesn't create it automatically.
+```bash
+kafka-topics --bootstrap-server localhost:9092 --create --topic raw_transactions --partitions 1 --replication-factor 1
+```
+
+### 3. Describe Topic
+See partition count and leader details.
+```bash
+kafka-topics --bootstrap-server localhost:9092 --describe --topic raw_transactions
+```
+
+### 4. Check Offsets (Message Count)
+See how many messages are currently in the queue.
+```bash
+kafka-run-class kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic raw_transactions --time -1
+```
+
+### 5. Delete Topic
+Wipe the slate clean (Warning: Deletes all data in the topic).
+```bash
+kafka-topics --bootstrap-server localhost:9092 --delete --topic raw_transactions
+```
