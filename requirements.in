@@ -1,0 +1,7 @@
+pyspark
+kafka-python
+redis
+streamlit
+faker
+loguru
+pandas

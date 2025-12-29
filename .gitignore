@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Spark & Delta Lake
+checkpoints/
+lakehouse/
+metastore_db/
+*.derby
+
+# Logs & State Files (From your dashboard)
+*.log
+*.pid
+producer.pid
+producer.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Jars (Optional: Usually you don't commit large jars, but up to you)
+# jars/
